@@ -1,0 +1,80 @@
+<div class="main-content">
+  <div class="col-lg-12 col-md-12">
+    <form [formGroup]="staffForm" class="form-horizontal"> 
+      <div class="card">
+        <div class="card-body"> 
+          <div class="row">  
+          
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="First Name " value="" [ngClass]="{ 'is-invalid': submitted && clientControl.f_name.errors }" />
+                <div *ngIf="submitted && clientControl.f_name.errors" class="invalid-feedback">
+                  <div *ngIf="clientControl.f_name.errors.required">This field is mandatory</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="date" class="form-control" placeholder="Date Of Birth" value="" [ngClass]="{ 'is-invalid': submitted && clientControl.dob.errors }" />
+                <div *ngIf="submitted && clientControl.dob.errors" class="invalid-feedback">
+                  <div *ngIf="clientControl.dob.errors.required">This field is mandatory</div>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <select class="form-control">
+                  <option class="hidden"  selected disabled>Department</option>
+                  <option>Computer Science and Engineering</option>
+                  <option>Electrical and Communication Engineering</option>
+                  <option>Electrical and Electronics Engineering</option>
+                  <option>Electrical and Instrumentation Engineering</option>
+                  <option>Bio-Medical Engineering</option>
+                  <option>Civil Engineering</option>
+                  <option>Information Technology</option>
+                  <option>Mechanical Engineering</option>
+                </select>
+              </div>
+            
+              <div class="form-group">
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" placeholder="Enter Address" rows="3" [ngClass]="{ 'is-invalid': submitted && clientControl.addr.errors }"></textarea>
+                <div *ngIf="submitted && clientControl.addr.errors" class="invalid-feedback">
+                  <div *ngIf="clientControl.addr.errors.required">This field is mandatory</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Name " value="" [ngClass]="{ 'is-invalid': submitted && clientControl.l_name.errors }" />
+                  <div *ngIf="submitted && clientControl.l_name.errors" class="invalid-feedback">
+                    <div *ngIf="clientControl.l_name.errors.required">This field is mandatory</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter Email" value="" [ngClass]="{ 'is-invalid': submitted && clientControl.email.errors }" />
+                  <div *ngIf="submitted && clientControl.email.errors" class="invalid-feedback">
+                    <div *ngIf="clientControl.email.errors.required">This field is mandatory</div>
+                    <div *ngIf="clientControl.email.errors.email">Enter valid email address</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Contact No" value="" [ngClass]="{ 'is-invalid': submitted && clientControl.ph_no.errors }" />
+                  <div *ngIf="submitted && clientControl.ph_no.errors" class="invalid-feedback">
+                    <div *ngIf="clientControl.ph_no.errors.required">This field is mandatory</div>
+                    <div *ngIf="clientControl.ph_no.errors.pattern">This field is number only</div>
+                    <div *ngIf="clientControl.ph_no.errors.minlength">Enter 10 digit phone number</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <select class="form-control">
+                  <option class="hidden"  selected disabled>Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-success btn-lg"  value="Register"/>
+            <input type="reset" class="btn btn-primary btn-lg"  value="Reset"/>
+          </div>
+        </div>
+      </div> 
+    </form>
+  </div> 
+</div>

@@ -1,0 +1,152 @@
+<div class="main-content">        
+    <div class="row"> 
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body"> 
+                    <form >
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="code"> Client Code</label>
+                                            <input type="text" id="code" class="form-control form-rounded" placeholder="client code" formControlName="code"  [ngClass]="{ 'is-invalid': submitted && clientControl.code.errors }">
+                                            <div *ngIf="submitted && clientControl.code.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.code.errors.required">This field is mandatory</div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="col-md-5">
+                                        <div class="form-group">       
+                                            <label for="name"> Client Name</label>
+                                            <input type="text" formControlName="name" id="name" class="form-control form-rounded" placeholder="client name" [ngClass]="{ 'is-invalid': submitted && clientControl.name.errors }"> 
+                                            <div *ngIf="submitted && clientControl.name.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.name.errors.required">This field is mandatory</div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">       
+                                            <label for="due"> Due</label>
+                                            <input type="number" id="due"  min="0" formControlName="due" class="form-control form-rounded" [ngClass]="{ 'is-invalid': submitted && clientControl.due.errors }"> 
+                                            <div *ngIf="submitted && clientControl.due.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.due.errors.required">This field is mandatory</div>
+                                            </div>
+                                        </div>  
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" id="email" class="form-control form-rounded" placeholder="email" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && clientControl.email.errors }">
+                                            <div *ngIf="submitted && clientControl.email.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.email.errors.required">This field is mandatory</div>
+                                                <div *ngIf="clientControl.email.errors.email">Enter valid email address</div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-3" >
+                                        <div class="form-group">
+                                            <label for="phone1">Phone 1</label>
+                                            <input type="text" formControlName="phone1" id="phone1" class="form-control form-rounded" placeholder="Phone 1" [ngClass]="{ 'is-invalid': submitted && clientControl.phone1.errors }">
+                                            <div *ngIf="submitted && clientControl.phone1.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.phone1.errors.required">This field is mandatory</div>
+                                                <div *ngIf="clientControl.phone1.errors.pattern">This field is number only</div>
+                                                <div *ngIf="clientControl.phone1.errors.minlength">Enter 10 digit phone number</div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="phone2">Phone 2</label>
+                                            <input type="text" formControlName="phone2" id="phone2" class="form-control form-rounded" placeholder="Phone 2" [ngClass]="{ 'is-invalid': submitted && clientControl.phone2.errors }">
+                                            <div *ngIf="submitted && clientControl.phone2.errors" class="invalid-feedback">
+                                                <div *ngIf="clientControl.phone2.errors.pattern">This field is number only</div>
+                                                <div *ngIf="clientControl.phone2.errors.minlength">Enter 10 digit phone number</div>
+                                            </div>
+                                        </div>  
+                                    </div> 
+                                </div>  
+                            </div>
+                        </div>   
+                        <div class="card">
+                            <div class="card-content" style="padding: 15px 15px 0px 15px;">
+                                <div class ="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="state">State</label>
+                                                    <select id="state" formControlName="state" class="form-control form-rounded" data-size="5" [ngClass]="{ 'is-invalid': submitted && clientControl.state.errors }"> 
+                                                        <option value="">-- choose state --</option>
+                                                        <option *ngFor='let state of stateOption' [ngValue]="state._id">
+                                                            {{state.name}}
+                                                        </option>
+                                                    </select> 
+                                                    <div *ngIf="submitted && clientControl.state.errors" class="invalid-feedback">
+                                                        <div *ngIf="clientControl.state.errors.required">This field is mandatory</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="city">City</label>
+                                                    <select id="city" formControlName="city" class="form-control form-rounded" data-size="5" [ngClass]="{ 'is-invalid': submitted && clientControl.city.errors }"> 
+                                                        <option value="">-- choose city --</option>
+                                                        <option *ngFor='let city of cityOption' [ngValue]='city._id'>
+                                                            {{city.name}}
+                                                        </option>
+                                                    </select>
+                                                    <div *ngIf="submitted && clientControl.district.errors" class="invalid-feedback">
+                                                        <div *ngIf="clientControl.district.errors.required">This field is mandatory</div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"> 
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="district">District</label>
+                                                    <select id="district" formControlName="district" class="form-control form-rounded" data-size="5" [ngClass]="{ 'is-invalid': submitted && clientControl.district.errors }"> 
+                                                        <option value="">-- choose district --</option>
+                                                        <option *ngFor="let district of districtOption" [ngValue]="district._id">
+                                                        {{district.name}}
+                                                        </option>
+                                                    </select> 
+                                                    <div *ngIf="submitted && clientControl.district.errors" class="invalid-feedback">
+                                                        <div *ngIf="clientControl.district.errors.required">This field is mandatory</div>
+                                                    </div>     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">                                                
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <textarea formControlName="address" class="form-control" placeholder="Address"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>                              
+                        <div class="row align-item-center justify-content-center">  
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-round">{{ btnButton.label }}</button> 
+                                <button type="reset" class="btn btn-warning btn-round">Reset</button>
+                            </div>     
+                        </div> 
+                    </form>    
+                </div>
+            </div>
+        </div>  
+    </div>   
+</div>
